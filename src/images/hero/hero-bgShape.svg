@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="493" height="517" viewBox="0 0 493 517">
+  <defs>
+    <clipPath id="clip-hero-bgShape">
+      <rect width="493" height="517"/>
+    </clipPath>
+  </defs>
+  <g id="hero-bgShape" clip-path="url(#clip-hero-bgShape)">
+    <path id="Rectangle_1" data-name="Rectangle 1" d="M109,0H482a9,9,0,0,1,9,9V506a9,9,0,0,1-9,9H9a9,9,0,0,1-9-9V109A109,109,0,0,1,109,0Z" fill="#EEEEEF"/>
+  </g>
+</svg>
