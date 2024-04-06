@@ -6,12 +6,12 @@ const image = require("gulp-image");
 function miniClassName() {
   return gulp
     .src(["./src/*.html", "./src/**/*.css", "./src/**/*.js"])
-    .pipe(
-      gulpMinifyCssNames({
-        postfix: "",
-        prefix: "ud-",
-      })
-    )
+    // .pipe(
+    //   gulpMinifyCssNames({
+    //     postfix: "",
+    //     prefix: "ud-",
+    //   })
+    // )
     .pipe(gulp.dest("build"));
 }
 

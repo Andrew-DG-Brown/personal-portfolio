@@ -9,47 +9,47 @@ body {
 }
 
 .sticky {
-  @apply ud-fixed ud-z-[9999] ud-transition ud-bg-white ud-bg-opacity-80;
+  @apply fixed z-[9999] transition bg-white bg-opacity-80;
   backdrop-filter: blur(5px);
   box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.1);
 }
 
 .sticky .header-logo {
-  @apply ud-py-4 lg:ud-py-2;
+  @apply py-4 lg:py-2;
 }
 
 .sticky .menu-scroll.active {
-  @apply ud-text-primary;
+  @apply text-primary;
 }
 
 .navbarTogglerActive > span:nth-child(1) {
-  @apply ud-transform ud-rotate-45 ud-top-[7px];
+  @apply transform rotate-45 top-[7px];
 }
 .navbarTogglerActive > span:nth-child(2) {
-  @apply ud-opacity-0;
+  @apply opacity-0;
 }
 .navbarTogglerActive > span:nth-child(3) {
-  @apply ud-top-[-8px] ud-rotate-[135deg];
+  @apply top-[-8px] rotate-[135deg];
 }
 
 .input-field {
-  @apply ud-w-full
-  ud-rounded-sm
-  ud-py-4
-  ud-px-8
-  ud-bg-[#f8f8f9]
-  ud-border-b-2
-  ud-border-transparent
-  ud-outline-none
-  focus-visible:ud-shadow-none
-  focus:ud-border-primary
-  ud-text-base
-  ud-font-medium
-  ud-text-body-color
-  ud-placeholder-body-color
-  ud-transition;
+  @apply w-full
+  rounded-sm
+  py-4
+  px-8
+  bg-[#f8f8f9]
+  border-b-2
+  border-transparent
+  outline-none
+  focus-visible:shadow-none
+  focus:border-primary
+  text-base
+  font-medium
+  text-body-color
+  placeholder-body-color
+  transition;
 }
 
 .portfolio-buttons button.active {
-  @apply ud-bg-primary ud-text-white;
+  @apply bg-primary text-white;
 }
