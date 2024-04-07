@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack serve --open --config webpack.config.js",
     "build-css": "tailwindcss -i ./src/tailwind.css -o ./src/css/tailwind.css -w",
-    "build": "webpack --config webpack.config.js"
+    "build": "npm i && webpack --config webpack.config.js"
   },
   "author": "",
   "license": "ISC",
