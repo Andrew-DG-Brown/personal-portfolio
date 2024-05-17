@@ -1,3 +1,3 @@
 export const COLORS = {
-    DARK: 'rgb(29 33 68 / 1)'
+    DARK: '#1D2144'
 } as const

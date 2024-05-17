@@ -1,5 +1,4 @@
-[] Transfer files
-    [] What libraries need be installed?
+[x] Transfer files
 
 [] Segment components
     [x] Navbar

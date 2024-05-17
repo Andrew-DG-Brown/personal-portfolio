@@ -1,6 +1,6 @@
 function Blog() {
     return (
-        <section id="news" className="pt-[120px] pb-20 bg-[#f8f9ff] hidden">
+        <section id="news" className="pt-[120px] pb-20 bg-[#f8f9ff]">
         <div className="container">
             <div className="flex flex-wrap mx-[-16px]">
             <div className="w-full px-4">
