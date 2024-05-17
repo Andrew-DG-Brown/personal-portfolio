@@ -3,7 +3,8 @@ import Hero from './Hero';
 import Navbar from './Navbar';
 import Contact from './Contact';
 import Footer from './Footer';
-// import Blog from './archive/Blog';
+import ScrollToTop from './ScrollToTop';
+import Blog from './archive/Blog';
 
 export default function Main() {
     return (
@@ -11,9 +12,10 @@ export default function Main() {
             <Navbar />
             <Hero />
             <Experience />
-            {/* <Blog /> */}
+            <Blog />
             <Contact />
             <Footer />
+            <ScrollToTop />
         </>
     )
 }
