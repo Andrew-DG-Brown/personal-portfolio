@@ -1,6 +1,21 @@
 import { COLORS } from '../config/constants';
+import useSmoothScrollTo from '../hooks/useSmoothScrollTo';
+
+const buttons = [
+    {
+        name: 'Projects',
+        id: 'projects',
+        color: 'bg-primary'
+    },
+    {
+        name: 'Contact',
+        id: 'contact',
+        color: 'bg-black'
+    }
+]
 
 export default function Hero() {
+    const scrollTo = useSmoothScrollTo()
     return (
         <div
             id="home"
@@ -20,24 +35,17 @@ export default function Hero() {
                     <p className="text-xl mb-8 text-body-color max-w-[480px]">
                         Full Stack Software Developer
                     </p>
-                    <ul className="flex flex-wrap items-center">
-                        <li>
-                        <a
-                            
-                            href="#services"
-                            className="menu-scroll py-4 px-10 lg:px-8 xl:px-10 inline-flex items-center justify-center text-center text-white text-base bg-primary hover:bg-opacity-90 font-normal rounded-lg mr-5"
-                        >
-                            Projects
-                        </a>
-                        </li>
-                        <li>
-                        <a
-                            href="#contact"
-                            className="menu-scroll py-4 px-10 lg:px-8 xl:px-10 inline-flex items-center justify-center text-center text-white text-base bg-black hover:bg-opacity-90 font-normal rounded-lg"
-                        >
-                            Contact
-                        </a>
-                        </li>
+                    <ul className="flex flex-wrap items-center gap-5">
+                        {buttons.map((but, i) => (
+                            <li key={`${i}_${but.name}`}>
+                                <button
+                                    onClick={() => scrollTo(but.id)}
+                                    className={`${but.color} menu-scroll py-4 px-10 lg:px-8 xl:px-10 inline-flex items-center justify-center text-center text-white text-basehover:bg-opacity-90 font-normal rounded-lg`}
+                                >
+                                    {but.name}
+                                </button>
+                            </li>
+                        ))}
                     </ul>
                     {/* <!-- Resume and github  --> */}
                     <ul className="flex">
