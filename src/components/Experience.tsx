@@ -1,6 +1,6 @@
 export default function Experience() {
     return (
-        <section id="education" className="bg-white relative z-10"
+        <section id="experience" className="bg-white relative z-10"
             style={{overflow: 'hidden'}}>
                 <div className="container">
                 <div className="border-b border-[#E9ECF8] pb-[70px]">

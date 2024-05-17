@@ -4,7 +4,7 @@ import Navbar from './Navbar';
 import Contact from './Contact';
 import Footer from './Footer';
 import ScrollToTop from './ScrollToTop';
-import Blog from './archive/Blog';
+import Projects from './Projects';
 
 export default function Main() {
     return (
@@ -12,7 +12,7 @@ export default function Main() {
             <Navbar />
             <Hero />
             <Experience />
-            <Blog />
+            <Projects />
             <Contact />
             <Footer />
             <ScrollToTop />

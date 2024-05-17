@@ -1,12 +1,37 @@
 import useScrolledFromTop from '../hooks/useScrolledFromTop'
+import useSmoothScrollTo from '../hooks/useSmoothScrollTo'
+
+const links = [
+    {
+        name: 'Home',
+        link: '#home',
+        id: 'home'
+    },
+    {
+        name: 'Experience',
+        link: '#experience',
+        id: 'experience',
+        headroom: -150
+    },
+    {
+        name: 'Projects',
+        link: '#projects',
+        id: 'projects'
+    },
+    {
+        name: 'Contact',
+        link: '#contact',
+        id: 'contact'
+    }
+]
 
 export default function Navbar() {
     const scrolled = useScrolledFromTop()
+    const scrollToSection = useSmoothScrollTo()
 
     return (
-        <nav
-            className={`${scrolled ? 'sticky' : ''} header bg-transparent absolute top-0 left-0 z-40 w-full flex items-center transition`}
-            >
+        <header
+            className={`${scrolled ? 'sticky' : ''} header bg-transparent absolute top-0 left-0 z-40 w-full flex items-center transition`}>
             <div className="container max-w-[1320px] wow fadeInDown" data-wow-delay="0.5s">
                 <div
                 className="flex mx-[-16px] items-center justify-between relative"
@@ -20,11 +45,10 @@ export default function Navbar() {
                     <img src="/images/logo/logo.svg" alt="logo" className="w-full " />
                     </a>
                 </div>
-                <div
-                    className="flex px-4 justify-between items-center w-full "
-                >
+                <div className="flex px-4 justify-between items-center w-full ">
                     <div>
-                    <button
+                    {/* TODO: implement burger dropdown on mobile */}
+                    {/* <button
                         id="navbarToggler"
                         name="navbarToggler"
                         aria-label="navbarToggler"
@@ -39,83 +63,55 @@ export default function Navbar() {
                         <span
                         className="relative w-[30px] h-[2px] my-[6px] block bg-dark"
                         ></span>
-                    </button>
+                    </button> */}
                     <nav
                         id="navbarCollapse"
                         className="absolute py-5 lg:py-0 lg:px-4 xl:px-6 bg-white lg:bg-transparent shadow-lg rounded-lg max-w-[250px] w-full lg:max-w-full lg:w-full right-4 top-full hidden lg:block lg:static lg:shadow-none "
                     >
-                        <ul className="blcok lg:flex">
-                        <li className="relative group">
-                            <a
-                            href="#home"
-                            className="menu-scroll text-base text-black group-hover:text-primary py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0"
-                            >
-                            Home
-                            </a>
-                        </li>
-                        <li className="relative group">
-                            <a
-                            href="#about"
-                            className="menu-scroll text-base text-black group-hover:text-primary py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12"
-                            >
-                            About
-                            </a>
-                        </li>
-                        <li className="relative group">
-                            <a
-                            href="#services"
-                            className="menu-scroll text-base text-black group-hover:text-primary py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12"
-                            >
-                            Projects
-                            </a>
-                        </li>
-                        <li className="relative group hidden">
-                            <a
-                            href="#pricing"
-                            className="menu-scroll text-base text-black group-hover:text-primary py-2 lg:py-6 lg:inline-flex lg:px-0  mx-8 lg:mr-0 lg:ml-8 xl:ml-12"
-                            >
-                            Pricing
-                            </a>
-                        </li>
-                        <li className="relative group">
-                            <a
-                            href="#contact"
-                            className="menu-scroll text-base text-black group-hover:text-primary py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0 lg:ml-8 xl:ml-12"
-                            >
-                            Contact
-                            </a>
-                        </li>
-                        <li className="relative hidden group submenu-item ">
-                            <a
-                            href="/"
-                            className="text-base text-black group-hover:text-primary py-2 lg:py-6 lg:inline-flex lg:pl-0 lg:pr-4 mx-8 lg:mr-0 lg:ml-8 xl:ml-12 relative after:absolute after:w-2 after:h-2 after:border-b-2 after:border-r-2 after:border-current after:rotate-45 lg:after:right-0 after:right-1 after:top-1/2 after:translate-y-[-50%] after:mt-[-2px] flex"
-                            >
-                            Pages
-                            </a>
-                            <div
-                            className="submenu hidden relative lg:absolute w-[250px] top-full lg:top-[110%] left-0 rounded-sm lg:shadow-lg p-4 lg:block lg:opacity-0 lg:invisible group-hover:opacity-100 lg:group-hover:visible lg:group-hover:top-full bg-white transition-[top] duration-300"
-                            >
-                            <a
-                                href="portfolio-details.html"
-                                className="block text-sm text-black rounded hover:text-primary py-[10px] px-4"
-                            >
-                                Portfolio Details Page
-                            </a>
+                        <ul className="blcok lg:flex gap-3">
+                            {links.map((el, i) => (
+                                <li key={`${i}_${el.name}`} className="relative group">
+                                    <a
+                                    // href={el.link}
+                                    onClick={() => scrollToSection(el.id, el.headroom)}
+                                    className="menu-scroll text-base text-black group-hover:text-primary py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0"
+                                    >
+                                        {el.name}
+                                    </a>
+                                </li>
+                            ))}
+                        
+                            {/* <li className="relative group submenu-item ">
+                                <a
+                                href="/"
+                                className="text-base text-black group-hover:text-primary py-2 lg:py-6 lg:inline-flex lg:pl-0 lg:pr-4 mx-8 lg:mr-0 lg:ml-8 xl:ml-12 relative after:absolute after:w-2 after:h-2 after:border-b-2 after:border-r-2 after:border-current after:rotate-45 lg:after:right-0 after:right-1 after:top-1/2 after:translate-y-[-50%] after:mt-[-2px] flex"
+                                >
+                                Pages
+                                </a>
+                                <div
+                                className="submenu hidden relative lg:absolute w-[250px] top-full lg:top-[110%] left-0 rounded-sm lg:shadow-lg p-4 lg:block lg:opacity-0 lg:invisible group-hover:opacity-100 lg:group-hover:visible lg:group-hover:top-full bg-white transition-[top] duration-300"
+                                >
+                                <a
+                                    href="portfolio-details.html"
+                                    className="block text-sm text-black rounded hover:text-primary py-[10px] px-4"
+                                >
+                                    Portfolio Details Page
+                                </a>
 
-                            <a
-                                href="blog-grids.html"
-                                className="block text-sm text-black rounded hover:text-primary py-[10px] px-4"
-                            >
-                                Blog Grids Page
-                            </a>
-                            <a
-                                href="blog-details.html"
-                                className="block text-sm text-black rounded hover:text-primary py-[10px] px-4"
-                            >
-                                Blog Details Page
-                            </a>
-                            </div>
-                        </li>
+                                <a
+                                    href="blog-grids.html"
+                                    className="block text-sm text-black rounded hover:text-primary py-[10px] px-4"
+                                >
+                                    Blog Grids Page
+                                </a>
+                                <a
+                                    href="blog-details.html"
+                                    className="block text-sm text-black rounded hover:text-primary py-[10px] px-4"
+                                >
+                                    Blog Details Page
+                                </a>
+                                </div>
+                            </li> */}
                         </ul>
                     </nav>
                     </div>
@@ -132,6 +128,6 @@ export default function Navbar() {
                 </div>
                 </div>
             </div>
-            </nav>
+            </header>
     )
 }
