@@ -31,7 +31,7 @@ export default function Navbar() {
 
     return (
         <header
-            className={`${scrolled ? 'sticky' : ''} header bg-transparent absolute top-0 left-0 z-40 w-full flex items-center transition`}>
+            className={`${scrolled ? 'sticky' : ''} header bg-transparent absolute top-0 left-0 z-10 w-full flex items-center transition`}>
             <div className="container max-w-[1320px] wow fadeInDown" data-wow-delay="0.5s">
                 <div
                 className="flex mx-[-16px] items-center justify-between relative"
@@ -72,11 +72,10 @@ export default function Navbar() {
                             {links.map((el, i) => (
                                 <li key={`${i}_${el.name}`} className="relative group">
                                     <a
-                                    // href={el.link}
                                     onClick={() => scrollToSection(el.id, el.headroom)}
-                                    className="menu-scroll text-base text-black group-hover:text-primary py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0"
+                                    className="menu-scroll text-base text-black  py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0"
                                     >
-                                        {el.name}
+                                        <span className='cursor-pointer hover:text-primary'>{el.name}</span>
                                     </a>
                                 </li>
                             ))}
