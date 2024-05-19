@@ -1,21 +1,10 @@
-import { COLORS } from '../config/constants';
-import useSmoothScrollTo from '../hooks/useSmoothScrollTo';
-
-const buttons = [
-    {
-        name: 'Projects',
-        id: 'projects',
-        color: 'bg-primary'
-    },
-    {
-        name: 'Contact',
-        id: 'contact',
-        color: 'bg-black'
-    }
-]
+import { COLORS } from '../../config/constants';
+import useSmoothScrollTo from '../../hooks/useSmoothScrollTo';
+import ContactButton from './ContactButton';
 
 export default function Hero() {
     const scrollTo = useSmoothScrollTo()
+
     return (
         <div
             id="home"
@@ -36,16 +25,17 @@ export default function Hero() {
                         Full Stack Software Developer
                     </p>
                     <ul className="flex flex-wrap items-center gap-5">
-                        {buttons.map((but, i) => (
-                            <li key={`${i}_${but.name}`}>
-                                <button
-                                    onClick={() => scrollTo(but.id)}
-                                    className={`${but.color} menu-scroll py-4 px-10 lg:px-8 xl:px-10 inline-flex items-center justify-center text-center text-white text-basehover:bg-opacity-90 font-normal rounded-lg`}
-                                >
-                                    {but.name}
-                                </button>
-                            </li>
-                        ))}
+                        <li>
+                            <button
+                                onClick={() => scrollTo('projects')}
+                                className={`bg-primary menu-scroll py-4 px-10 lg:px-8 xl:px-10 inline-flex items-center justify-center text-center text-white text-basehover:bg-opacity-90 font-normal rounded-lg`}
+                            >
+                                Projects
+                            </button>
+                        </li>
+                        <li>
+                            <ContactButton />
+                        </li>
                     </ul>
                     {/* <!-- Resume and github  --> */}
                     <ul className="flex">
