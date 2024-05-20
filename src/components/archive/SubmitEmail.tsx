@@ -1,6 +1,6 @@
 function SubmitEmail() {
     return (
-        <section className="hidden mt-[-160px]">
+        <section className='mb-28'>
             <div className="container">
                 <div
                 className="bg-primary rounded-md relative overflow-hidden z-10 text-center py-[70px]"
@@ -9,7 +9,7 @@ function SubmitEmail() {
                     <h2
                     className="font-bold text-white text-2xl md:text-[40px] leading-tight mb-10"
                     >
-                    Want to work together and create amazing products?
+                    Reach out to me!
                     </h2>
                     <form className="relative max-w-[480px] mx-auto">
                     <input
