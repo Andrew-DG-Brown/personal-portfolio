@@ -1,26 +1,27 @@
+import { EMAIL_LINK } from '../config/constants'
 import useScrolledFromTop from '../hooks/useScrolledFromTop'
 import useSmoothScrollTo from '../hooks/useSmoothScrollTo'
 
 const links = [
     {
         name: 'Home',
-        link: '#home',
+        section: '#home',
         id: 'home'
     },
     {
         name: 'Experience',
-        link: '#experience',
+        section: '#experience',
         id: 'experience',
         headroom: -150
     },
     {
         name: 'Projects',
-        link: '#projects',
+        section: '#projects',
         id: 'projects'
     },
     {
         name: 'Contact',
-        link: '#contact',
+        link: EMAIL_LINK,
         id: 'contact'
     }
 ]
@@ -32,7 +33,7 @@ export default function Navbar() {
     return (
         <header
             className={`${scrolled ? 'sticky' : ''} header bg-transparent absolute top-0 left-0 z-10 w-full flex items-center transition`}>
-            <div className="container max-w-[1320px] wow fadeInDown" data-wow-delay="0.5s">
+            <div className="container max-w-[1320px] fadeInDown">
                 <div
                 className="flex mx-[-16px] items-center justify-between relative"
                 >
@@ -72,7 +73,7 @@ export default function Navbar() {
                             {links.map((el, i) => (
                                 <li key={`${i}_${el.name}`} className="relative group">
                                     <a
-                                    onClick={() => scrollToSection(el.id, el.headroom)}
+                                    {...(el.link ? { href: el.link } : { onClick: () => scrollToSection(el.id, el.headroom) })}
                                     className="menu-scroll text-base text-black  py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0"
                                     >
                                         <span className='cursor-pointer hover:text-primary'>{el.name}</span>
@@ -118,7 +119,7 @@ export default function Navbar() {
                     className="sm:flex justify-end hidden pr-16 lg:pr-0"
                     >
                     <a
-                        href="#contact"
+                        href={EMAIL_LINK}
                         className="menu-scroll text-base font-bold text-white bg-primary rounded-full py-3 px-8 md:px-9 lg:px-8 xl:px-9 hover:shadow-signUp hover:bg-opacity-90 transition ease-in-out duration-300"
                     >
                         Email Me
