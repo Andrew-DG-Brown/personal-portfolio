@@ -3,7 +3,7 @@ import Hero from './hero/Hero';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import ScrollToTop from './ScrollToTop';
-import Projects from './Projects';
+import Projects from './projects/Projects';
 import PreLoad from './PreLoad';
 import { useState } from 'react';
 import { motion, useAnimate } from 'framer-motion';
@@ -21,14 +21,19 @@ export default function Main() {
         <>
             {!loaded ? <PreLoad onComplete={animatePage}/> : null}
             <motion.div initial={{ opacity: 0, y: 20 }} ref={scope}>
-                <Navbar />
-                <Hero />
-                <Experience />
-                <Projects />
-                {/* <Contact /> */}
-                <Footer />
-                <ScrollToTop />
+            {loaded ? (
+                <>
+                    <Navbar />
+                    <Hero />
+                    <Experience />
+                    <Projects />
+                    {/* <Contact /> */}
+                    <Footer />
+                    <ScrollToTop />
+                </>
+            ) : null}
             </motion.div>
+            
         </>
     )
 }

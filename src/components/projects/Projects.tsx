@@ -1,3 +1,5 @@
+import ProjectCard from './ProjectCard';
+
 const projects = [
     {
         name: 'Insightful Analytics',
@@ -19,6 +21,8 @@ const projects = [
     }
 ]
 
+export type Project = typeof projects[0]
+
 function Projects() {
     return (
         <section id="projects" className="pt-[120px] pb-20 bg-[#f8f9ff]">
@@ -38,38 +42,9 @@ function Projects() {
                     </div>
                 </div>
             </div>
-            <div className="flex flex-wrap -mx-4">
+            <div className="flex flex-wrap -mx-4 -mt-5">
                 {projects.map((proj, i) => ( 
-                    <div key={`${i}_${proj.name}`} className="w-full lg:w-1/2 xl:w-1/3 px-4">
-                        <div className="bg-white rounded-xl overflow-hidden mb-10 shadow-blog">
-                        <a href={proj.link} target='_blank' className="block">
-                            <img
-                            src={proj.image}
-                            alt="image"
-                            className="w-full"
-                            />
-                        </a>
-                        <div className="py-8 px-6 sm:px-11">
-                            <h3>
-                            <a href={proj.link} target='_blank'
-                                className="font-semibold text-xl text-black hover:text-primary block mb-3 truncate">
-                                {proj.name}
-                            </a>
-                            </h3>
-                            <p
-                            className="font-medium text-body-color text-base mb-4"
-                            >
-                            {proj.description}
-                            </p>
-                            <a
-                            href={proj.link} target='_blank'
-                            className="font-medium text-sm text-black underline hover:text-primary hover:no-underline"
-                            >
-                            Demo
-                            </a>
-                        </div>
-                        </div>
-                    </div>
+                    <ProjectCard project={proj} key={`${i}_${proj.name}`} />
                 ))}
             </div>
         </div>

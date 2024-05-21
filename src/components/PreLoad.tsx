@@ -1,4 +1,4 @@
-import { motion, stagger, useAnimate, useAnimationFrame } from 'framer-motion'
+import { motion, stagger, useAnimate } from 'framer-motion'
 import { useEffect } from 'react'
 
 type Props = {
@@ -7,7 +7,6 @@ type Props = {
 
 export default function PreLoad({ onComplete }: Props) {
     const [scope, animate] = useAnimate()
-    useAnimationFrame(() => scrollTo(0, 0))
 
     const endAnimation = async () => {
         return Promise.all([
