@@ -15,7 +15,7 @@ const projects = [
     },
     {
         name: 'DEFA Crypto',
-        description: 'Cryptocurrency market app that allows you to view price trends for the top coins.',
+        description: 'Cryptocurrency market that allows you to view price trends for the top coins.',
         image: '/images/projects/defa.jpg',
         link: 'https://www.defacrypto.com/'
     }
@@ -23,7 +23,7 @@ const projects = [
 
 export type Project = typeof projects[0]
 
-function Projects() {
+export default function Projects() {
     return (
         <section id="projects" className="pt-[120px] pb-20 bg-[#f8f9ff]">
         <div className="container">
@@ -42,14 +42,14 @@ function Projects() {
                     </div>
                 </div>
             </div>
-            <div className="flex flex-wrap -mx-4 -mt-5">
-                {projects.map((proj, i) => ( 
-                    <ProjectCard project={proj} key={`${i}_${proj.name}`} />
-                ))}
+            <div className="relative flex w-full flex-wrap -mx-4 -mt-5 min-h-[500px]">
+                {projects.map((proj, i) => { 
+                    return <ProjectCard 
+                    project={proj} key={`${i}_${proj.name}`}
+                    />
+                })}
             </div>
         </div>
         </section>
     );
 }
-
-export default Projects;

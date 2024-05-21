@@ -1,6 +1,6 @@
 function Footer() {
     return (
-        <footer className="bg-black pt-[100px] pb-12 relative z-10">
+        <footer className="bg-black pt-[100px] pb-12 relative">
             <div className="container">
                 {/* <!-- Top row  --> */}
                 <div className="flex flex-wrap -mx-4">

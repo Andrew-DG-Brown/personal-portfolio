@@ -1,10 +1,6 @@
-import { Project } from './Projects';
 import { Variants, motion } from 'framer-motion'
 
 const variants: Variants = {
-    initial: {
-        boxShadow: '0px 40px 150px -35px rgba(0, 0, 0, 0.05)'
-    },
     hovered: {
         scale: 1.05,
         boxShadow: '0px 40px 150px -35px rgba(0, 0, 0, 0.3)',
@@ -16,27 +12,34 @@ const variants: Variants = {
     }
 }
 
-function ProjectCard({ project }: { project: Project }) {
-
+export default function ProjectCard({ project }) {
     return (
-        <div
-        className="w-full lg:w-1/2 xl:w-1/3">
+        <motion.div variants={variants}
+        className="lg:w-1/2 xl:w-1/3" animate={{ width: open ? 'open' : 'closed'}}>
             <motion.div
-            // onAnimationStart={() => setHovered(prev => !prev)}
+            style={{ 
+                boxShadow: '0px 40px 150px -35px rgba(0, 0, 0, 0.05)', 
+                zIndex: 0
+            }}
+            layoutId={project.name}
             variants={variants}
-            whileHover="hovered"
-            initial="initial"
-            className="bg-white rounded-xl overflow-hidden mx-4 mt-5">
-                <a href={project.link} target='_blank' className="block">
-                    <img
+            whileHover={'hovered'}
+            className="bg-white rounded-xl overflow-hidden mx-4 mt-5 cursor-pointer">
+                <motion.a 
+                layoutId={project.image}
+                href={project.link}
+                target='_blank' className="block">
+                    <motion.img
                     src={project.image}
                     alt="image"
                     className="w-full"
                     />
-                </a>
-                <div className="py-8 px-6 sm:px-11">
+                </motion.a>
+                <motion.div className="py-8 px-6 sm:px-11">
                     <h3>
-                        <a href={project.link} target='_blank'
+                        <a 
+                        href={project.link} 
+                        target='_blank'
                             className="font-semibold text-xl text-black hover:text-primary block mb-3 truncate">
                             {project.name}
                         </a>
@@ -52,10 +55,15 @@ function ProjectCard({ project }: { project: Project }) {
                     >
                     Demo
                     </a>
-                </div>
+                </motion.div>
             </motion.div>
-        </div>
-    );
+        </motion.div>
+    )
 }
 
-export default ProjectCard;
+
+// function TechChip() {
+//     return (
+//         <></>
+//     )
+// }

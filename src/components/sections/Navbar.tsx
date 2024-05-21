@@ -1,6 +1,6 @@
-import { EMAIL_LINK } from '../config/constants'
-import useScrolledFromTop from '../hooks/useScrolledFromTop'
-import useSmoothScrollTo from '../hooks/useSmoothScrollTo'
+import { EMAIL_LINK } from '../../config/constants'
+import useScrolledFromTop from '../../hooks/useScrolledFromTop'
+import useSmoothScrollTo from '../../hooks/useSmoothScrollTo'
 
 const links = [
     {

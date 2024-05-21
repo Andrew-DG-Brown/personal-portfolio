@@ -1,9 +1,9 @@
-import Experience from './Experience';
-import Hero from './hero/Hero';
-import Navbar from './Navbar';
-import Footer from './Footer';
+import Experience from './sections/Experience';
+import Hero from './sections/hero/Hero';
+import Navbar from './sections/Navbar';
+import Footer from './sections/Footer';
 import ScrollToTop from './ScrollToTop';
-import Projects from './projects/Projects';
+import Projects from './sections/projects/Projects';
 import PreLoad from './PreLoad';
 import { useState } from 'react';
 import { motion, useAnimate } from 'framer-motion';

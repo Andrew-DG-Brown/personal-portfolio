@@ -1,4 +1,4 @@
-import { EMAIL_LINK } from '../../config/constants';
+import { EMAIL_LINK } from '../../../config/constants';
 
 function ContactButton() {
     
