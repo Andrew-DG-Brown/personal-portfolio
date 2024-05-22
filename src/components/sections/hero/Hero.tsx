@@ -10,12 +10,17 @@ import Angular from '../../icons/Angular';
 import Nextjs from '../../icons/Nextjs';
 import Tailwind from '../../icons/Tailwind';
 import Pandas from '../../icons/Pandas';
+import { motion } from 'framer-motion';
 
 export default function Hero() {
     const scrollTo = useSmoothScrollTo()
 
     return (
-        <div
+        <motion.div
+            transition={{ duration: 0.5, delay: 0.3 }}
+            style={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             id="home"
             className="relative pt-[120px] lg:pt-[150px] pb-[110px] bg-white"
             >
@@ -200,6 +205,6 @@ export default function Hero() {
                 </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 }

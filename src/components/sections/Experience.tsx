@@ -1,7 +1,12 @@
+import { motion } from 'framer-motion';
+
 export default function Experience() {
     return (
-        <section id="experience" className="bg-white relative"
-            style={{overflow: 'hidden'}}>
+        <motion.section id="experience" className="bg-white relative overflow-hidden"
+            transition={{ duration: 0.5, delay: 0.3 }}
+            viewport={{ once: true }}
+            style={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}>
                 <div className="container">
                 <div className="border-b border-[#E9ECF8] pb-[70px]">
                     <div className="flex flex-wrap mx-[-16px]">
@@ -86,6 +91,6 @@ export default function Experience() {
                 </svg>
                 </span>
             </div>
-        </section>
+        </motion.section>
     )
 }

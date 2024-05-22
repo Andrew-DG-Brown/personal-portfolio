@@ -2,26 +2,32 @@ import { EMAIL_LINK } from '../../config/constants'
 import useScrolledFromTop from '../../hooks/useScrolledFromTop'
 import { links } from '../../config/links'
 import useNavLink from '../../hooks/useNavLink'
+import { Link } from '@tanstack/react-router'
+import { motion } from 'framer-motion'
 
 export default function Navbar() {
     const scrolled = useScrolledFromTop()
     const navigateTo = useNavLink()
 
     return (
-        <header
+        <motion.header
+            transition={{ duration: 0.5, delay: 0.3, ease: 'easeOut' }}
+            style={{ y: -20, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
             className={`${scrolled ? 'sticky' : 'absolute'} header bg-transparent top-0 left-0 z-10 w-full flex items-center transition`}>
             <div className="container max-w-[1320px] fadeInDown">
                 <div
                 className="flex mx-[-16px] items-center justify-between relative"
                 >
                 <div className="px-4 w-60 max-w-full ">
-                    <a
-                    href="index.html"
+                    <Link
+                    to="/"
                     className="header-logo w-full block py-6 lg:py-8"
                     >
                     {/* <!-- Nav Logo  --> */}
                     <img src="/images/logo/logo.svg" alt="logo" className="w-full " />
-                    </a>
+                    </Link>
                 </div>
                 <div className="flex px-4 justify-between items-center w-full ">
                     <div>
@@ -105,6 +111,6 @@ export default function Navbar() {
                 </div>
                 </div>
             </div>
-            </header>
+            </motion.header>
     )
 }

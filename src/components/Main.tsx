@@ -10,7 +10,7 @@ export default function Main() {
     const scrollToSection = useSmoothScrollTo()
 
     useEffect(() => {
-        if ('section' in state) {
+        if (state && 'section' in state) {
             scrollToSection(state.section?.id, state.section?.headroom, 'instant')
         }
     }, [])
