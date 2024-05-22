@@ -1,4 +1,10 @@
+import { SOCIAL_LINKS } from '../../config/constants';
+import { links } from '../../config/links';
+import useNavLink from '../../hooks/useNavLink';
+
 function Footer() {
+    const navigateTo = useNavLink()
+
     return (
         <footer className="bg-black pt-[100px] pb-12 relative">
             <div className="container">
@@ -28,7 +34,7 @@ function Footer() {
                     </div>
                 </div>
                 <div className="w-full md:w-1/2 lg:w-3/12 px-4">
-                    <div className="mb-10 hidden">
+                    {/* <div className="mb-10">
                     <h3 className="font-semibold text-white text-xl mb-9">
                         What I Do?
                     </h3>
@@ -66,10 +72,10 @@ function Footer() {
                         </a>
                         </li>
                     </ul>
-                    </div>
+                    </div> */}
                 </div>
                 <div className="w-full md:w-1/2 lg:w-2/12 px-4">
-                    <div className="mb-10 hidden">
+                    {/* <div className="mb-10">
                     <h3 className="font-semibold text-white text-xl mb-9">
                         News
                     </h3>
@@ -107,47 +113,25 @@ function Footer() {
                         </a>
                         </li>
                     </ul>
-                    </div>
+                    </div> */}
                 </div>
                 <div className="w-full md:w-1/2 lg:w-3/12 px-4">
                     <div className="mb-10">
-                    <h3 className="font-semibold text-white text-xl mb-9">
-                        Quick Links
-                    </h3>
-                    <ul>
-                        <li>
-                        <a
-                        href="#home"
-                            className="inline-block text-base text-body-color mb-3 hover:text-primary"
-                        >
-                            Home
-                        </a>
-                        </li>
-                        <li>
-                        <a
-                        href="#services"
-                            className="inline-block text-base text-body-color mb-3 hover:text-primary"
-                        >
-                            Projects
-                        </a>
-                        </li>
-                        <li>
-                        <a
-                        href="#about"
-                            className="inline-block text-base text-body-color mb-3 hover:text-primary"
-                        >
-                            About
-                        </a>
-                        </li>
-                        <li>
-                        <a
-                            href="/"
-                            className="text-base text-body-color mb-3 hover:text-primary hidden"
-                        >
-                            Legal & Privacy
-                        </a>
-                        </li>
-                    </ul>
+                        <h3 className="font-semibold text-white text-xl mb-9">
+                            Quick Links
+                        </h3>
+                        <ul>
+                            {links.map((el, i) => (
+                                <li key={`${i}_${el.id}`}>
+                                    <a
+                                        {...(el.link ? { href: el.link } : { onClick: () => navigateTo(el) })}
+                                        className="inline-block cursor-pointer text-base text-body-color mb-3 hover:text-primary"
+                                    >
+                                        {el.name}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
                     </div>
                 </div>
                 </div>
@@ -156,9 +140,9 @@ function Footer() {
                 className="mt-10 pt-12 border-t border-white border-opacity-10"
                 >
                 <div className="flex items-center justify-center mb-5">
-                    <a
+                    {/* <a
                     href="/"
-                    className="hidden items-center justify-center w-8 h-8 founded-full mx-2 text-body-color hover:text-primary"
+                    className="items-center justify-center w-8 h-8 founded-full mx-2 text-body-color hover:text-primary"
                     aria-label="social-link"
                     //   name="facebook"
                     >
@@ -173,10 +157,10 @@ function Footer() {
                         d="M32 16C32 7.1625 24.8375 0 16 0C7.1625 0 0 7.1625 0 16C0 24.8375 7.1625 32 16 32C16.0938 32 16.1875 32 16.2812 31.9937V19.5438H12.8438V15.5375H16.2812V12.5875C16.2812 9.16875 18.3688 7.30625 21.4188 7.30625C22.8813 7.30625 24.1375 7.4125 24.5 7.4625V11.0375H22.4C20.7437 11.0375 20.4188 11.825 20.4188 12.9812V15.5312H24.3875L23.8687 19.5375H20.4188V31.3813C27.1063 29.4625 32 23.3062 32 16Z"
                         />
                     </svg>
-                    </a>
-                    <a
+                    </a> */}
+                    {/* <a
                     href="/"
-                    className="hidden items-center justify-center w-8 h-8 founded-full mx-2 text-body-color hover:text-primary"
+                    className="items-center justify-center w-8 h-8 founded-full mx-2 text-body-color hover:text-primary"
                     aria-label="social-link"
                     //   name="instagram"
                     >
@@ -196,8 +180,8 @@ function Footer() {
                         d="M16 0C7.16479 0 0 7.16479 0 16C0 24.8352 7.16479 32 16 32C24.8352 32 32 24.8352 32 16C32 7.16479 24.8352 0 16 0ZM25.1321 19.7878C25.0876 20.7659 24.9321 21.4336 24.7051 22.0181C24.2278 23.2522 23.2522 24.2278 22.0181 24.7051C21.4338 24.9321 20.7659 25.0874 19.7881 25.1321C18.8083 25.1768 18.4954 25.1875 16.0002 25.1875C13.5049 25.1875 13.1921 25.1768 12.2122 25.1321C11.2344 25.0874 10.5664 24.9321 9.98218 24.7051C9.3689 24.4744 8.81372 24.1128 8.35474 23.6453C7.88745 23.1865 7.52588 22.6311 7.29517 22.0181C7.06812 21.4338 6.9126 20.7659 6.86816 19.7881C6.823 18.8081 6.8125 18.4951 6.8125 16C6.8125 13.5049 6.823 13.1919 6.86792 12.2122C6.91235 11.2341 7.06763 10.5664 7.29468 9.98193C7.52539 9.3689 7.88721 8.81348 8.35474 8.35474C8.81348 7.88721 9.3689 7.52563 9.98193 7.29492C10.5664 7.06787 11.2341 6.9126 12.2122 6.86792C13.1919 6.82324 13.5049 6.8125 16 6.8125C18.4951 6.8125 18.8081 6.82324 19.7878 6.86816C20.7659 6.9126 21.4336 7.06787 22.0181 7.29468C22.6311 7.52539 23.1865 7.88721 23.6455 8.35474C24.1128 8.81372 24.4746 9.3689 24.7051 9.98193C24.9324 10.5664 25.0876 11.2341 25.1323 12.2122C25.177 13.1919 25.1875 13.5049 25.1875 16C25.1875 18.4951 25.177 18.8081 25.1321 19.7878Z"
                         />
                     </svg>
-                    </a>
-                    <a
+                    </a> */}
+                    {/* <a
                     href="/"
                     className="hidden items-center justify-center w-8 h-8 founded-full mx-2 text-body-color hover:text-primary"
                     aria-label="social-link"
@@ -213,10 +197,11 @@ function Footer() {
                         d="M16 0C7.16479 0 0 7.16479 0 16C0 24.8352 7.16479 32 16 32C24.8352 32 32 24.8352 32 16C32 7.16479 24.8352 0 16 0ZM23.3054 12.4751C23.3125 12.6326 23.3159 12.7908 23.3159 12.9497C23.3159 17.8025 19.6221 23.3984 12.8669 23.3987H12.8672H12.8669C10.793 23.3987 8.86304 22.7908 7.23779 21.749C7.52515 21.783 7.81763 21.7998 8.11377 21.7998C9.83447 21.7998 11.418 21.2129 12.675 20.2278C11.0674 20.198 9.71191 19.1362 9.24414 17.677C9.46802 17.72 9.69824 17.7434 9.93433 17.7434C10.2695 17.7434 10.5942 17.6982 10.9028 17.614C9.22241 17.2776 7.95654 15.7925 7.95654 14.0142C7.95654 13.9976 7.95654 13.9827 7.95703 13.9673C8.4519 14.2424 9.01782 14.408 9.62036 14.4265C8.63428 13.7686 7.98608 12.6438 7.98608 11.3696C7.98608 10.6968 8.16797 10.0664 8.4834 9.52368C10.2944 11.7458 13.001 13.2073 16.0532 13.3608C15.9902 13.0918 15.9578 12.8115 15.9578 12.5234C15.9578 10.4961 17.6025 8.85132 19.6306 8.85132C20.687 8.85132 21.6411 9.29785 22.3113 10.0117C23.1479 9.84668 23.9336 9.54102 24.6433 9.12036C24.3687 9.97754 23.7866 10.6968 23.0283 11.1516C23.7712 11.0627 24.4792 10.8657 25.1372 10.5732C24.6458 11.3098 24.0225 11.9568 23.3054 12.4751Z"
                         />
                     </svg>
-                    </a>
+                    </a> */}
                     <a
-                    href="/"
-                    className="hidden items-center justify-center w-8 h-8 founded-full mx-2 text-body-color hover:text-primary"
+                    href={SOCIAL_LINKS.LINKEDIN}
+                    target='_blank'
+                    className="items-center justify-center w-8 h-8 founded-full mx-2 text-body-color hover:text-primary"
                     aria-label="social-link"
                     //   name="LinkedIn"
                     >
@@ -232,51 +217,29 @@ function Footer() {
                     </svg>
                     </a>
                 </div>
-                <p
-                    className="font-medium text-base text-body-color text-center hidden"
+                {/* <p
+                    className="font-medium text-base text-body-color text-center"
                 >
                     All rights reserved by © Portfolio creative 2024
-                </p>
+                </p> */}
                 </div>
             </div>
 
+            <div id='circle-fade' className="absolute left-0 bottom-0" aria-label="shape">
+                    <span className="hidden">shape</span>
+                    <svg width="143" height="138" viewBox="0 0 143 138" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="25" cy="118" r="101" stroke="url(#paint0_linear_52:83)" strokeWidth="34" />
+                        <defs>
+                        <linearGradient id="paint0_linear_52:83" x1="-12.7969" y1="-37.3359" x2="99.2109" y2="173.773"
+                            gradientUnits="userSpaceOnUse">
+                            <stop stopColor="#4A6CF7" />
+                            <stop offset="1" stopColor="#4A6CF7" stopOpacity="0" />
+                        </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
             <div
-                className="absolute left-0 bottom-0 -z-1"
-                aria-label="shape"
-                // name="shape"
-            >
-                <span className="hidden">shape</span>
-                <svg
-                width="143"
-                height="138"
-                viewBox="0 0 143 138"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                >
-                <circle
-                    cx="25"
-                    cy="118"
-                    r="101"
-                    stroke="url(#paint0_linear_52:83)"
-                    strokeWidth="34"
-                />
-                <defs>
-                    <linearGradient
-                    id="paint0_linear_52:83"
-                    x1="-12.7969"
-                    y1="-37.3359"
-                    x2="99.2109"
-                    y2="173.773"
-                    gradientUnits="userSpaceOnUse"
-                    >
-                    <stop stopColor="#4A6CF7" />
-                    <stop offset="1" stopColor="#4A6CF7" stopOpacity="0" />
-                    </linearGradient>
-                </defs>
-                </svg>
-            </div>
-            <div
-                className="absolute right-3 top-3 -z-1"
+                className="absolute right-3 top-3"
                 aria-label="shape"
                 // name="shape"
             >

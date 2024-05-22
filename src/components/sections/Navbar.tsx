@@ -1,38 +1,15 @@
 import { EMAIL_LINK } from '../../config/constants'
 import useScrolledFromTop from '../../hooks/useScrolledFromTop'
-import useSmoothScrollTo from '../../hooks/useSmoothScrollTo'
-
-const links = [
-    {
-        name: 'Home',
-        section: '#home',
-        id: 'home'
-    },
-    {
-        name: 'Experience',
-        section: '#experience',
-        id: 'experience',
-        headroom: -150
-    },
-    {
-        name: 'Projects',
-        section: '#projects',
-        id: 'projects'
-    },
-    {
-        name: 'Contact',
-        link: EMAIL_LINK,
-        id: 'contact'
-    }
-]
+import { links } from '../../config/links'
+import useNavLink from '../../hooks/useNavLink'
 
 export default function Navbar() {
     const scrolled = useScrolledFromTop()
-    const scrollToSection = useSmoothScrollTo()
+    const navigateTo = useNavLink()
 
     return (
         <header
-            className={`${scrolled ? 'sticky' : ''} header bg-transparent absolute top-0 left-0 z-10 w-full flex items-center transition`}>
+            className={`${scrolled ? 'sticky' : 'absolute'} header bg-transparent top-0 left-0 z-10 w-full flex items-center transition`}>
             <div className="container max-w-[1320px] fadeInDown">
                 <div
                 className="flex mx-[-16px] items-center justify-between relative"
@@ -69,11 +46,11 @@ export default function Navbar() {
                         id="navbarCollapse"
                         className="absolute py-5 lg:py-0 lg:px-4 xl:px-6 bg-white lg:bg-transparent shadow-lg rounded-lg max-w-[250px] w-full lg:max-w-full lg:w-full right-4 top-full hidden lg:block lg:static lg:shadow-none "
                     >
-                        <ul className="blcok lg:flex gap-3">
+                        <ul className="lg:flex gap-3">
                             {links.map((el, i) => (
                                 <li key={`${i}_${el.name}`} className="relative group">
                                     <a
-                                    {...(el.link ? { href: el.link } : { onClick: () => scrollToSection(el.id, el.headroom) })}
+                                    {...(el.link ? { href: el.link } : { onClick: () => navigateTo(el) })}
                                     className="menu-scroll text-base text-black  py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0"
                                     >
                                         <span className='cursor-pointer hover:text-primary'>{el.name}</span>

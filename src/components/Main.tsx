@@ -1,39 +1,27 @@
 import Experience from './sections/Experience';
 import Hero from './sections/hero/Hero';
-import Navbar from './sections/Navbar';
-import Footer from './sections/Footer';
 import ScrollToTop from './ScrollToTop';
 import Projects from './sections/projects/Projects';
-import PreLoad from './PreLoad';
-import { useState } from 'react';
-import { motion, useAnimate } from 'framer-motion';
+import { useEffect } from 'react';
+import useSmoothScrollTo from '../hooks/useSmoothScrollTo';
 
 export default function Main() {
-    const [loaded, setLoaded] = useState<boolean>(false)
-    const [scope, animate] = useAnimate()
+    const { state } = history
+    const scrollToSection = useSmoothScrollTo()
 
-    function animatePage() {
-        setLoaded(true)
-        animate(scope.current, { opacity: 1, y: 0 }, { ease: 'easeOut', duration: 0.5 })
-    }
+    useEffect(() => {
+        if ('section' in state) {
+            scrollToSection(state.section?.id, state.section?.headroom, 'instant')
+        }
+    }, [])
 
     return (
         <>
-            {!loaded ? <PreLoad onComplete={animatePage}/> : null}
-            <motion.div initial={{ opacity: 0, y: 20 }} ref={scope}>
-            {loaded ? (
-                <>
-                    <Navbar />
-                    <Hero />
-                    <Experience />
-                    <Projects />
-                    {/* <Contact /> */}
-                    <Footer />
-                    <ScrollToTop />
-                </>
-            ) : null}
-            </motion.div>
-            
+            <Hero />
+            <Experience />
+            <Projects />
+            {/* <Contact /> */}
+            <ScrollToTop />
         </>
     )
 }

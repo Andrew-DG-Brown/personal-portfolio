@@ -1,4 +1,6 @@
+import { Link } from '@tanstack/react-router'
 import { Variants, motion } from 'framer-motion'
+import { Project } from './Projects'
 
 const variants: Variants = {
     hovered: {
@@ -12,10 +14,10 @@ const variants: Variants = {
     }
 }
 
-export default function ProjectCard({ project }) {
+export default function ProjectCard({ project }: { project: Project }) {
     return (
-        <motion.div variants={variants}
-        className="lg:w-1/2 xl:w-1/3" animate={{ width: open ? 'open' : 'closed'}}>
+        <div
+        className="lg:w-1/2 xl:w-1/3">
             <motion.div
             style={{ 
                 boxShadow: '0px 40px 150px -35px rgba(0, 0, 0, 0.05)', 
@@ -25,24 +27,21 @@ export default function ProjectCard({ project }) {
             variants={variants}
             whileHover={'hovered'}
             className="bg-white rounded-xl overflow-hidden mx-4 mt-5 cursor-pointer">
-                <motion.a 
-                layoutId={project.image}
-                href={project.link}
-                target='_blank' className="block">
+                <Link
+                to={`/${project.id}`} className="block">
                     <motion.img
                     src={project.image}
                     alt="image"
                     className="w-full"
                     />
-                </motion.a>
+                </Link>
                 <motion.div className="py-8 px-6 sm:px-11">
                     <h3>
-                        <a 
-                        href={project.link} 
-                        target='_blank'
+                        <Link
+                        to={`/${project.id}`} 
                             className="font-semibold text-xl text-black hover:text-primary block mb-3 truncate">
                             {project.name}
-                        </a>
+                        </Link>
                     </h3>
                     <p
                     className="font-medium text-body-color text-base mb-4"
@@ -57,13 +56,6 @@ export default function ProjectCard({ project }) {
                     </a>
                 </motion.div>
             </motion.div>
-        </motion.div>
+        </div>
     )
 }
-
-
-// function TechChip() {
-//     return (
-//         <></>
-//     )
-// }

@@ -1,4 +1,4 @@
-import { COLORS } from '../../../config/constants';
+import { COLORS, SOCIAL_LINKS } from '../../../config/constants';
 import useSmoothScrollTo from '../../../hooks/useSmoothScrollTo';
 import Python from '../../icons/Python';
 import TypeScript from '../../icons/TypeScript';
@@ -50,7 +50,7 @@ export default function Hero() {
                             <ul className="flex">
                                 <li>
                                 <a
-                                    href="https://www.linkedin.com/in/andrew-brown-webdev/"
+                                    href={SOCIAL_LINKS.LINKEDIN}
                                     target="_blank"
                                     className="py-10 pr-10 lg:pr-8 xl:pr-10 inline-flex items-center justify-center text-center text-base font-normal text-body-color"
                                 >
@@ -62,7 +62,7 @@ export default function Hero() {
                                 </li>
                                 <li>
                                 <a
-                                    href="https://github.com/Andrew-DG-Brown"
+                                    href={SOCIAL_LINKS.GITHUB}
                                     target="_blank"
                                     className="py-10 pr-10 lg:pr-8 xl:pr-10 inline-flex items-center justify-center text-center text-base font-normal text-body-color "
                                 >
