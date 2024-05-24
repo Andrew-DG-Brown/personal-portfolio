@@ -155,7 +155,7 @@ export default function Hero() {
                 <div className="flex items-center w-full lg:w-6/12 px-4 wow fadeInRight">
                     <div className="flex justify-center md:justify-end lg:text-right lg:ml-auto">
                     <div
-                        className="relative inline-block z-10 pt-11 lg:pt-0 w-[80%]"
+                        className="relative inline-block pt-11 lg:pt-0 w-[80%]"
                     >
                         <div className="relative max-w-full lg:ml-auto rounded-xl shadow-xl overflow-hidden bg-me"
                         style={{borderTopLeftRadius: '100px'}}>

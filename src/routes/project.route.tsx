@@ -1,6 +1,7 @@
 import { createRoute } from '@tanstack/react-router'
 import { rootRoute } from './__root';
 import ProjectDetails from '../components/pages/ProjectDetails';
+import { getProject } from '../config/projects';
 
 export const projectRoute = createRoute({
     getParentRoute: () => rootRoute,
@@ -10,10 +11,9 @@ export const projectRoute = createRoute({
 
 function Project() {
     const { project } = projectRoute.useParams()
+    const config = getProject(project)
+
     return (
-        <>
-            {/* <div>Project ID: {project}</div> */}
-            <ProjectDetails key={'project-' + project}/>
-        </>
+        <ProjectDetails key={'project-' + project} project={config}/>
     )
 }

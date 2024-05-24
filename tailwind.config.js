@@ -9,20 +9,21 @@ export default {
   darkMode: 'class', // or 'media' or 'class'
   theme: {
     screens: {
+      xs: "440px",
+
       sm: "540px",
-      // => @media (min-width: 576px) { ... }
 
       md: "720px",
-      // => @media (min-width: 768px) { ... }
 
       lg: "960px",
-      // => @media (min-width: 992px) { ... }
 
       xl: "1140px",
-      // => @media (min-width: 1200px) { ... }
 
       "2xl": "1320px",
-      // => @media (min-width: 1400px) { ... }
+      "3xl": "1500px",
+      "4xl": "1680px",
+      "5xl": "1920px",
+
     },
     container: {
       center: true,

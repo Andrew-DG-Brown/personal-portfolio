@@ -1,30 +1,6 @@
 import ProjectCard from './ProjectCard';
-
-const projects = [
-    {
-        id: 'insightful-analytics',
-        name: 'Insightful Analytics',
-        description: 'A analytics dashboard utilizing a real UK consumer products dataset.',
-        image: '/images/projects/insightful.jpg',
-        link: 'https://insightful-analytics.vercel.app/'
-    },
-    {
-        id: 'commerce',
-        name: 'E-commerce Store',
-        description: 'An online clothing store with fully function cart and category routing',
-        image: '/images/projects/commerce.png',
-        link: 'https://crwnshop.netlify.app/'
-    },
-    {
-        id: 'defa',
-        name: 'DEFA Crypto',
-        description: 'Cryptocurrency market that allows you to view price trends for the top coins.',
-        image: '/images/projects/defa.jpg',
-        link: 'https://www.defacrypto.com/'
-    }
-]
-
-export type Project = typeof projects[0]
+import { projects } from '../../../config/projects';
+import { motion } from 'framer-motion'
 
 export default function Projects() {
     return (
@@ -45,13 +21,15 @@ export default function Projects() {
                     </div>
                 </div>
             </div>
-            <div className="relative flex w-full flex-wrap -mx-4 -mt-5 min-h-[500px]">
+            <motion.div className="relative flex w-full flex-wrap -mx-4 -mt-5 min-h-[500px]">
                 {projects.map((proj, i) => { 
-                    return <ProjectCard 
-                    project={proj} key={`${i}_${proj.name}`}
-                    />
+                    return  (
+                        <motion.div className="lg:w-1/2 xl:w-1/3" key={`${i}_${proj.name}`} transition={{ delay: Math.max(0, i * 0.3), duration: 0.5}} style={{ y: 30, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={{ once: true }}>
+                            <ProjectCard project={proj} />
+                        </motion.div>
+                    )
                 })}
-            </div>
+            </motion.div>
         </div>
         </section>
     );

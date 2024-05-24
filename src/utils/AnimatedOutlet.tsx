@@ -19,8 +19,9 @@ export const AnimatedOutlet = forwardRef<HTMLDivElement>((_, ref) => {
   
     return (
         <>
-            <Transition isTransitioning={!isPresent}/>
-            <motion.div ref={ref} initial={{ y: 40, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -40, opacity: 0 }} onAnimationStart={() => scrollTo({ behavior: 'smooth', top: 0 })}>
+            <Transition />
+            <motion.div ref={ref} initial={{ y: 40, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ opacity: 0 }} 
+            onAnimationEnd={() => scrollTo(0, 0)}>
                 <RouterContext.Provider value={renderedContext.current}>
                     <Navbar />
                     <Outlet />
