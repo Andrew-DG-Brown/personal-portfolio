@@ -150,19 +150,9 @@ export default function ProjectDetails({ project }: { project: Project }) {
                                 <div className='content' dangerouslySetInnerHTML={{ __html: data }}></div>
                                 <div>
                                     <div className=" rounded-sm overflow-hidden p-8 md:p-9 lg:p-8 xl:p-9 bg-primary relative mb-10">
-                                    <p className="
-                                            max-w-[660px]
-                                            mx-auto
-                                            text-center
-                                            text-base
-                                            text-white
-                                            italic
-                                            font-medium
+                                    <p className="max-w-[660px] mx-auto text-center text-base text-white font-medium
                                         ">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                        sed do eiusmod incididunt utionals labore et dolore magna
-                                        aliqua. Quis lobortis scelerisque fermentum, The Neque ut
-                                        etiam sit amet.
+                                        This project is live at <a className='underline' target='_blank' href={project.link}>{project.link}</a> 
                                     </p>
                                     <span className="absolute left-0 bottom-0 z-10">
                                         <svg width="182" height="160" viewBox="0 0 182 160" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -209,7 +199,7 @@ export default function ProjectDetails({ project }: { project: Project }) {
                                         </svg>
                                     </span>
                                     </div>
-                                    <div className="sm:flex items-center justify-between">
+                                    {/* <div className="sm:flex items-center justify-between">
                                     <div className="mb-5">
                                         <h5 className="
                                             font-medium text-body-color text-sm mb-3
@@ -323,7 +313,7 @@ export default function ProjectDetails({ project }: { project: Project }) {
                                         </a>
                                         </div>
                                     </div>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         </div>
