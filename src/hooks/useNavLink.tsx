@@ -8,12 +8,14 @@ function useNavLink() {
     const { location } = useRouterState()
     const navigate = useNavigate()
 
-    return (el: Link) => {
+    return { 
+        navigateTo: (el: Link) => {
 
-        if (location.href != '/') {
-            navigate({ to: '/', state: (prev) => ({ ...prev, section: el }) })
-        } else {
-            scrollToSection(el.id, el.headroom)
+            if (location.href != '/') {
+                navigate({ to: '/', state: (prev) => ({ ...prev, section: el }) })
+            } else {
+                scrollToSection(el.id, el.headroom)
+            }
         }
     }
 }

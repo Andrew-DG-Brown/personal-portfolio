@@ -1,19 +1,14 @@
-import { Project } from '../../config/projects';
-import content from '../../../public/static/projects.content'
+import { Project } from '../../../config/projects';
+import content from '../../../../public/static/projects.content'
 import './ProjectDetails.styles.css'
 import { motion, useMotionTemplate, useScroll, useSpring, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-import { Navigate } from '@tanstack/react-router';
 
 export default function ProjectDetails({ project }: { project: Project }) {
     const data = content[project?.id]
 
-    //TODO: error 404 page
-    if (!data) return Navigate({ to: '/' })
-
-    return (
-        <>    
-            <section className="relative pt-[150px] overflow-x-hidden">
+    return ( 
+        <section className="relative pt-[150px] overflow-x-hidden">
                 <BlurBall classes='top-64 max-xs:top-[17rem] max-md:top-[25rem] max-sm:left-[8%] left-[13%] 2xl:left-[10vw]  5xl:left-[17vw] w-[40rem] h-[40rem] bg-primary -z-1' />
                 <BlurBall classes='top-64 max-xs:top-[17rem] max-md:top-[25rem] max-sm:right-[8%] right-[13%] 2xl:right-[10vw] 5xl:right-[17vw] w-[40rem] h-[40rem] bg-primary -z-1' />
                 <div className='bg-white' style={{ boxShadow: '-1px 20px 32px 25px rgba(0,0,0,0.10)'}}>
@@ -336,8 +331,7 @@ export default function ProjectDetails({ project }: { project: Project }) {
                 </div>
                 </div>
                 </div>
-            </section>
-        </>
+        </section>
     );
 }
 

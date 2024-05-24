@@ -7,7 +7,7 @@ import { motion } from 'framer-motion'
 
 export default function Navbar() {
     const scrolled = useScrolledFromTop()
-    const navigateTo = useNavLink()
+    const { navigateTo } = useNavLink()
 
     return (
         <motion.header

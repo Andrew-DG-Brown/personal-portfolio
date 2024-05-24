@@ -3,7 +3,7 @@ import { links } from '../../config/links';
 import useNavLink from '../../hooks/useNavLink';
 
 function Footer() {
-    const navigateTo = useNavLink()
+    const { navigateTo } = useNavLink()
 
     return (
         <footer className="bg-black pt-[100px] pb-12 relative">
