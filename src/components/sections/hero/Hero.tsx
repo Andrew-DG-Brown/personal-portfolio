@@ -1,16 +1,8 @@
 import { COLORS, SOCIAL_LINKS } from '../../../config/constants';
 import useSmoothScrollTo from '../../../hooks/useSmoothScrollTo';
-import Python from '../../icons/Python';
-import TypeScript from '../../icons/TypeScript';
 import ContactButton from './ContactButton';
-import Node from '../../icons/Node';
-import AWS from '../../icons/AWS';
-import Postgres from '../../icons/Posgres';
-import Angular from '../../icons/Angular';
-import Nextjs from '../../icons/Nextjs';
-import Tailwind from '../../icons/Tailwind';
-import Pandas from '../../icons/Pandas';
 import { motion } from 'framer-motion';
+import Icon from '../../Icon';
 
 export default function Hero() {
     const scrollTo = useSmoothScrollTo()
@@ -94,27 +86,23 @@ export default function Hero() {
                             {/* <!-- left  --> */}
                             <div className="flex flex-col flex-wrap items-center mr-10">
                                 <div className="flex items-center w-full py-3 mr-4">
-                                    <TypeScript mainFill="#000" innerFill="#fff"/>
+                                    <Icon type='typescript' />
                                     <p className="inline ml-3">TypeScript/JavaScript</p>
                                 </div>
-                                <div
-                                className="flex items-center w-full py-3 mr-4"
-                                >
-                                    <Python mainFill="#000" innerFill="#fff"/>
+                                <div className="flex items-center w-full py-3 mr-4">
+                                    <Icon type='python' />
                                 <p className="inline ml-3">Python</p>
                                 </div>
                                 <div className="flex items-center w-full py-3 mr-4">
-                                    <Node mainFill='#000'/>
+                                    <Icon type='nodejs' />
                                 <p className="inline ml-3">Node.js</p>
                                 </div>
-                                {/* <!-- AWS logo  --> */}
                                 <div className="flex items-center w-full py-3 mr-4">
-                                    <AWS mainFill='#000' />
-                            
+                                    <Icon type='aws' />
                                 <p className="inline ml-3">AWS Cloud</p>
                                 </div>
                                 <div className="flex items-center w-full py-3 mr-4">
-                                    <Postgres mainFill="#000" innerFill="#fff"/>
+                                    <Icon type='postgres' />
                                 <p className="inline ml-3">PostgreSQL</p>
                                 </div>
                             </div>
@@ -124,25 +112,19 @@ export default function Hero() {
                                 className="flex flex-col flex-wrap items-center mr-10"
                             >
                                 <div className="flex items-center w-full py-3 mr-4">
-                                    <Angular mainFill='#000' innerFill='#fff'/>
+                                    <Icon type='angular' />
                                 <p className="inline ml-3">Angular</p>
                                 </div>
-                                <div
-                                className="flex items-center w-full py-3 mr-4"
-                                >
-                                    <Nextjs mainFill='#000'/>
+                                <div className="flex items-center w-full py-3 mr-4">
+                                    <Icon type='nextjs' />
                                 <p className="inline ml-3">Next.js (React)</p>
                                 </div>
-                                <div
-                                className="flex items-center w-full py-3 mr-4"
-                                >
-                                    <Tailwind mainFill='#000'/>
+                                <div className="flex items-center w-full py-3 mr-4">
+                                    <Icon type='tailwind' />
                                 <p className="inline ml-3">Tailwind</p>
                                 </div>
-                                <div
-                                className="flex items-center w-full py-3 mr-4"
-                                >
-                                    <Pandas mainFill='#000'/>
+                                <div className="flex items-center w-full py-3 mr-4">
+                                    <Icon type='pandas' />
                                 <p className="inline ml-3">Pandas</p>
                                 </div>
                             </div>

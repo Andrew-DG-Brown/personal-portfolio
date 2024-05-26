@@ -1,8 +1,9 @@
-import { Project } from '../../../config/projects';
+import { Project, Tech } from '../../../config/projects';
 import content from '../../../../public/static/projects.content'
 import './ProjectDetails.styles.css'
-import { motion, useMotionTemplate, useScroll, useSpring, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { motion, useAnimationFrame, useInView, useMotionTemplate, useMotionValue, useScroll, useSpring, useTransform } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
+import Icon from '../../Icon';
 
 export default function ProjectDetails({ project }: { project: Project }) {
     const data = content[project?.id]
@@ -21,6 +22,7 @@ export default function ProjectDetails({ project }: { project: Project }) {
                                 <h2 className="font-bold text-black text-3xl sm:text-4xl leading-tight sm:leading-tight mb-8">
                                     {project.name}
                                 </h2>
+                                <TechCarousel tech={project.tech}/>
                                 {/* TODO replace sub-heading with tech used carousel */}
                                 {/* <div className="
                                         flex
@@ -347,4 +349,43 @@ function HeroImage({ src }) {
         </motion.div>
     )
 
+}
+
+type Props = {
+    tech: readonly Tech[]
+}
+
+function TechCarousel({ tech }: Props) {
+    const [chunks, setChunks] = useState<typeof tech[]>([tech])
+    const x = useMotionValue(0)
+    const containerRef = useRef(null)
+    const firstRef = useRef(null)
+    
+    const containerInView = useInView(containerRef);
+    const firstInView = useInView(firstRef, { root: containerRef });
+    useAnimationFrame(() => {
+        if (!containerInView) return
+        x.set(x.get() + 0.5)
+    })
+
+    useEffect(() => {
+        if (firstInView) {
+            setChunks(prev => [tech, ...prev])
+        }
+    }, [firstInView])
+
+    return (
+        <div ref={containerRef} className='w-full relative h-14 overflow-hidden'>
+            <motion.ul style={{ x, right: 0 }} className='absolute top-0 h-full flex'>
+                {chunks.map((chunk, chunkI) => (
+                    chunk?.map((logo, i) => (
+                        <li ref={i == 0 && chunkI == 0 ? firstRef : null} key={`${i}_${logo.label}`} className='h-full px-7 flex gap-2 items-center'>
+                            <Icon type={logo.type} />
+                            <p className='whitespace-nowrap'>{logo.label}</p>
+                        </li>
+                    ))
+                ))}
+            </motion.ul>
+        </div>
+    )
 }
