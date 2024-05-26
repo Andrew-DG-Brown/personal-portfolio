@@ -47,6 +47,7 @@ export default {
         testimonial: "0px 8px 40px -10px rgba(9, 14, 52, 0.1)",
         service: "0px 11px 41px -11px rgba(9, 14, 52, 0.1)",
         blog: "0px 40px 150px -35px rgba(0, 0, 0, 0.05)",
+        carousel: 'inset 30px 0 15px -10px #ffffff, inset -30px 0 15px -10px #ffffff'
       },
       zIndex: {
         "-1": -1,

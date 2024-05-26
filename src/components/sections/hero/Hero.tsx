@@ -9,7 +9,7 @@ export default function Hero() {
 
     return (
         <motion.div
-            transition={{ duration: 0.5, delay: 0.3 }}
+            transition={{ duration: 0.5 }}
             style={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -21,7 +21,7 @@ export default function Hero() {
                     <div
                         className="flex flex-col justify-center w-full lg:w-5/12 px-4"
                     >
-                        <div className="hero-content wow fadeInLeft">
+                        <div className="hero-content fadeInLeft">
                             <h1
                                 className="text-dark font-bold text-6xl leading-snug mb-1"
                             >
