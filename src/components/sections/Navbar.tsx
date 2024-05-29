@@ -15,7 +15,7 @@ export default function Navbar() {
             style={{ y: -20, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
-            className={`${scrolled ? 'header' : 'absolute'} bg-transparent top-0 left-0 z-10 w-full flex items-center transition`}>
+            className={`${scrolled ? 'header' : 'absolute'} bg-transparent top-0 left-0 z-20 w-full flex items-center transition`}>
             <div className="container max-w-[1320px] fadeInDown">
                 <div
                 className="flex mx-[-16px] items-center justify-between relative"

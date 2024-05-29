@@ -1,6 +1,17 @@
 import { iconConfig } from './icons'
 
-export const projects = [
+export type Tech = { label: string; type: keyof typeof iconConfig }
+
+export type Project = {
+    id: string;
+    name: string;
+    description: string;
+    image: string;
+    link: string;
+    tech: Tech[]
+}
+
+export const projects: Project[] = [
     {
         id: 'insightful-analytics',
         name: 'Insightful Analytics',
@@ -46,9 +57,38 @@ export const projects = [
         id: 'commerce',
         name: 'E-commerce Store',
         description: 'An online clothing store with fully function cart and category routing',
-        image: '/images/projects/commerce.png',
+        image: '/images/projects/commerce.jpg',
         link: 'https://crwnshop.netlify.app/',
-        tech: []
+        tech: [
+            {
+                label: 'JavaScript',
+                type: 'javascript'
+            },
+            {
+                label: 'React',
+                type: 'react'
+            },
+            {
+                label: 'Redux',
+                type: 'redux'
+            },
+            {
+                label: 'Node.js',
+                type: 'nodejs'
+            },
+            {
+                label: 'Firebase',
+                type: 'firebase'
+            },
+            {
+                label: 'Sass',
+                type: 'sass'
+            },
+            {
+                label: 'Jest',
+                type: 'jest'
+            },
+        ]
     },
     {
         id: 'defa',
@@ -56,12 +96,34 @@ export const projects = [
         description: 'Cryptocurrency market that allows you to view price trends for the top coins.',
         image: '/images/projects/defa.jpg',
         link: 'https://www.defacrypto.com/',
-        tech: []
+        tech: [
+            {
+                label: 'JavaScript',
+                type: 'javascript'
+            },
+            {
+                label: 'Axios',
+                type: 'axios'
+            },
+            {
+                label: 'HTML',
+                type: 'html'
+            },
+            {
+                label: 'CSS',
+                type: 'css'
+            },
+            {
+                label: 'Tailwind',
+                type: 'tailwind'
+            },
+            {
+                label: 'Node.js',
+                type: 'nodejs'
+            }
+        ]
     }
 ] as const
-
-export type Project = typeof projects[0]
-export type Tech = { label: string; type: keyof typeof iconConfig }
 
 export function getProject(projectedId) {
     return projects.find(({ id }) => id == projectedId) as Project

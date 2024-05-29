@@ -25,34 +25,42 @@ export default function ProjectCard({ project }: { project: Project }) {
         variants={variants}
         whileHover={'hovered'}
         className="bg-white rounded-xl overflow-hidden mx-4 mt-5">
-            <Link
-            to={`/${project.id}`} className="block">
+            <ProjectLink link={`/${project.id}`} className='block'>
                 <motion.img
                 src={project.image}
                 alt="image"
                 className="w-full"
                 />
-            </Link>
+            </ProjectLink>
             <motion.div className="py-8 px-6 sm:px-11">
                 <h3>
-                    <Link
-                    to={`/${project.id}`} 
-                        className="font-semibold text-xl text-black hover:text-primary block mb-3 truncate">
+                    <ProjectLink link={`/${project.id}`} className="font-semibold text-xl text-black hover:text-primary block mb-3 truncate">
                         {project.name}
-                    </Link>
+                    </ProjectLink>
                 </h3>
                 <p
                 className="font-medium text-body-color text-base mb-4"
                 >
                 {project.description}
                 </p>
-                <a
-                href={project.link} target='_blank'
-                className="font-medium text-sm text-black underline hover:text-primary hover:no-underline"
-                >
-                Demo
-                </a>
+                <div className='flex gap-10 mt-7 items-center'>
+                    <ProjectLink link={`/${project.id}`} className="inline-flex items-center justify-center py-2 px-4 rounded-full bg-primary text-white text-sm">
+                        Details
+                    </ProjectLink>
+                    <a href={project.link} target='_blank'
+                    className="font-medium text-sm text-black underline hover:text-primary hover:no-underline">
+                        Demo
+                    </a>
+                </div>
             </motion.div>
         </motion.div>
+    )
+}
+
+function ProjectLink({ children, link, className }: { children?: JSX.Element | string, link: string, className: string }) {
+    return (
+        <Link to={link} className={className}>
+                {children}
+        </Link>
     )
 }

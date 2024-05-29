@@ -40,7 +40,7 @@ export default function ProjectDetails({ project }: { project: Project }) {
                                 
                                 <div className='content' dangerouslySetInnerHTML={{ __html: data }}></div>
                                 <div>
-                                    <div className=" rounded-sm overflow-hidden p-8 md:p-9 lg:p-8 xl:p-9 bg-primary relative mb-10">
+                                    <div className=" rounded-sm overflow-hidden p-8 md:p-9 lg:p-8 xl:p-9 bg-primary relative">
                                     <p className="max-w-[660px] mx-auto text-center text-base text-white font-medium
                                         ">
                                         This project is live at <a className='underline' target='_blank' href={project.link}>{project.link}</a> 
@@ -233,7 +233,7 @@ function HeroImage({ src }) {
         <motion.div
         ref={ref}
         style={{ transform }}
-        className="absolute max-sm:-mt-[13rem] max-md:-mt-[17rem] -mt-[23rem] -ml-[45%] w-[90%] lg:-ml-[35%] lg:w-[70%] 4xl:-ml-[700px] 4xl:w-[1400px] left-1/2 rounded overflow-hidden mb-10 shadow-lg -z-1 bg-white">
+        className="absolute max-sm:-mt-[13rem] max-md:-mt-[17rem] -mt-[23rem] -ml-[45%] w-[90%] lg:-ml-[35%] lg:w-[70%] 4xl:-ml-[700px] 4xl:w-[1400px] left-1/2 rounded-xl overflow-hidden mb-10 shadow-lg -z-1 bg-white">
             <img src={src} alt="image" className="w-full h-full object-cover object-center" />
         </motion.div>
     )
@@ -275,7 +275,7 @@ function TechCarousel({ tech }: Props) {
                     ))
                 ))}
             </motion.ul>
-            <div id='overlay' className='absolute top-0 h-full w-full shadow-carousel z-10'></div>
+            <div id='overlay' className='absolute top-0 h-full w-full shadow-carousel z-10 pointer-events-none'></div>
         </div>
     )
 }
