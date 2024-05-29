@@ -21,7 +21,7 @@ export default function Projects() {
                     </div>
                 </div>
             </div>
-            <motion.div className="relative flex w-full flex-wrap -mx-4 -mt-5 min-h-[500px]">
+            <motion.div className="relative flex w-full flex-wrap min-h-[500px]">
                 {projects.map((proj, i) => { 
                     return  (
                         <motion.div className="lg:w-1/2 xl:w-1/3" key={`${i}_${proj.name}`} transition={{ delay: Math.max(0, i * 0.3), duration: 0.5}} style={{ y: 30, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={{ once: true }}>
