@@ -27,10 +27,22 @@ export default function Experience() {
 					</div>
 
 					<div className="relative pt-12">
-						<span className="absolute top-0 block left-2 lg:left-1/2 w-[1px] h-full bg-[#d7dfff]"></span>
+						<motion.span
+							style={{ height: "0%" }}
+							whileInView={{ height: "100%" }}
+							transition={{ duration: 2 }}
+							viewport={{ once: true }}
+							className="absolute top-0 block left-2 lg:left-1/2 w-[1px] h-full bg-[#d7dfff]"
+						></motion.span>
 
 						<div className="flex flex-wrap -mx-4">
-							<div className="w-full lg:w-1/2 px-4">
+							<motion.div
+								className="w-full lg:w-1/2 px-4"
+								style={{ y: 50, opacity: 0 }}
+								whileInView={{ y: 0, opacity: 1 }}
+								transition={{ delay: 0, duration: 0.5 }}
+								viewport={{ once: true }}
+							>
 								<div className="lg:max-w-[428px] xl:max-w-[490px] w-full ml-auto pl-8 sm:pl-11 lg:pl-0 lg:pr-0 lg:mr-5 lg:text-right relative pb-12">
 									<span className="absolute top-1 left-0 lg:left-auto lg:-right-11 w-4 h-4 rounded-full bg-white border-4 border-primary"></span>
 									<h3 className="font-semibold text-xl text-black mb-1">
@@ -44,10 +56,28 @@ export default function Experience() {
 										June 2025 - present{" "}
 									</span>
 								</div>
-							</div>
-							<div className="w-full lg:w-1/2 px-4"></div>
-							<div className="w-full lg:w-1/2 px-4"></div>
-							<div className="w-full lg:w-1/2 px-4">
+							</motion.div>
+							<motion.div
+								className="w-full lg:w-1/2 px-4"
+								style={{ y: 50, opacity: 0 }}
+								whileInView={{ y: 0, opacity: 1 }}
+								transition={{ delay: 0, duration: 0 }}
+								viewport={{ once: true }}
+							></motion.div>
+							<motion.div
+								className="w-full lg:w-1/2 px-4"
+								style={{ y: 50, opacity: 0 }}
+								whileInView={{ y: 0, opacity: 1 }}
+								transition={{ delay: 0, duration: 0 }}
+								viewport={{ once: true }}
+							></motion.div>
+							<motion.div
+								className="w-full lg:w-1/2 px-4"
+								style={{ y: 50, opacity: 0 }}
+								whileInView={{ y: 0, opacity: 1 }}
+								transition={{ delay: 0.2, duration: 0.5 }}
+								viewport={{ once: true }}
+							>
 								<div className="lg:max-w-[428px] xl:max-w-[490px] w-full pl-8 sm:pl-11 lg:pl-0 lg:ml-5 relative pb-12">
 									<span className="absolute top-1 left-0 lg:-left-11 w-4 h-4 rounded-full bg-white border-4 border-primary"></span>
 									<h3 className="font-semibold text-xl text-black mb-1">
@@ -61,8 +91,14 @@ export default function Experience() {
 										Sept 2022 - June 2025{" "}
 									</span>
 								</div>
-							</div>
-							<div className="w-full lg:w-1/2 px-4">
+							</motion.div>
+							<motion.div
+								className="w-full lg:w-1/2 px-4"
+								style={{ y: 50, opacity: 0 }}
+								whileInView={{ y: 0, opacity: 1 }}
+								transition={{ delay: 0.4, duration: 0.5 }}
+								viewport={{ once: true }}
+							>
 								<div className="lg:max-w-[428px] xl:max-w-[490px] w-full ml-auto pl-8 sm:pl-11 lg:pl-0 lg:pr-0 lg:mr-5 lg:text-right relative pb-12">
 									<span className="absolute top-1 left-0 lg:left-auto lg:-right-11 w-4 h-4 rounded-full bg-white border-4 border-primary"></span>
 									<h3 className="font-semibold text-xl text-black mb-1">
@@ -76,10 +112,28 @@ export default function Experience() {
 										Apr 2022 - Sept 2022{" "}
 									</span>
 								</div>
-							</div>
-							<div className="w-full lg:w-1/2 px-4"></div>
-							<div className="w-full lg:w-1/2 px-4"></div>
-							<div className="w-full lg:w-1/2 px-4">
+							</motion.div>
+							<motion.div
+								className="w-full lg:w-1/2 px-4"
+								style={{ y: 50, opacity: 0 }}
+								whileInView={{ y: 0, opacity: 1 }}
+								transition={{ delay: 0, duration: 0 }}
+								viewport={{ once: true }}
+							></motion.div>
+							<motion.div
+								className="w-full lg:w-1/2 px-4"
+								style={{ y: 50, opacity: 0 }}
+								whileInView={{ y: 0, opacity: 1 }}
+								transition={{ delay: 0, duration: 0 }}
+								viewport={{ once: true }}
+							></motion.div>
+							<motion.div
+								className="w-full lg:w-1/2 px-4"
+								style={{ y: 50, opacity: 0 }}
+								whileInView={{ y: 0, opacity: 1 }}
+								transition={{ delay: 0.6, duration: 0.5 }}
+								viewport={{ once: true }}
+							>
 								<div className="lg:max-w-[428px] xl:max-w-[490px] w-full pl-8 sm:pl-11 lg:pl-0 lg:ml-5 relative pb-12">
 									<span className="absolute top-1 left-0 lg:-left-11 w-4 h-4 rounded-full bg-white border-4 border-primary"></span>
 									<h3 className="font-semibold text-xl text-black mb-1">
@@ -93,7 +147,7 @@ export default function Experience() {
 										Jan 2021 - Apr 2022{" "}
 									</span>
 								</div>
-							</div>
+							</motion.div>
 
 							{/* <!-- Last experience section --> */}
 						</div>
